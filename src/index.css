@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  --color-primary: #774AA4;
+  --color-primary-hover: #684092;
+  --color-primary-light: #F2EAF8;
+  --color-primary-track: #E5DEEC;
+  --color-text-primary: #35234C;
+  --color-text-secondary: #77717F;
+  --color-text-muted: #A8A7AA;
+  --color-bg-app: #FDFAFF;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-subtle: #F7F3FA;
+  --color-border: #E8E2EC;
+  --color-success: #22922F;
+  --color-success-soft: #E7F7E9;
+  --color-danger: #C64C64;
+  --color-danger-soft: #FCEAF0;
+  --color-warning: #D59B14;
+  --color-warning-soft: #FFF7DD;
+  --color-info: #4478BE;
+  --color-info-soft: #EAF2FF;
+}
+
+:root {
+  --primary: #774AA4;
+  --primary-hover: #684092;
+  --primary-chart: #744AA3;
+  --primary-light: #F2EAF8;
+  --primary-track: #E5DEEC;
+  --text-primary: #35234C;
+  --text-secondary: #77717F;
+  --text-muted: #A8A7AA;
+  --bg-app: #FDFAFF;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F7F3FA;
+  --border-default: #E8E2EC;
+  --success: #22922F;
+  --success-soft: #E7F7E9;
+  --danger: #C64C64;
+  --danger-soft: #FCEAF0;
+  --warning: #D59B14;
+  --warning-soft: #FFF7DD;
+  --info: #4478BE;
+  --info-soft: #EAF2FF;
+  --gradient-start: #C5B9D6;
+  --gradient-mid: #A58BC2;
+  --gradient-end: #9E82BE;
+  --sidebar-width: 220px;
+  --header-height: 60px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(53, 35, 76, 0.04);
+  --shadow-md: 0 4px 12px rgba(53, 35, 76, 0.06);
+  --shadow-lg: 0 8px 24px rgba(53, 35, 76, 0.08);
+}
+
+[data-theme="dark"] {
+  --primary: #9B6FC7;
+  --primary-hover: #B08AD9;
+  --primary-chart: #9B6FC7;
+  --primary-light: #2A1F3D;
+  --primary-track: #3D2E54;
+  --text-primary: #E8E0F0;
+  --text-secondary: #A89BB8;
+  --text-muted: #6B5F7A;
+  --bg-app: #1A1225;
+  --bg-surface: #241B33;
+  --bg-subtle: #2D2240;
+  --border-default: #3D2E54;
+  --success: #4ADE80;
+  --success-soft: #1A3D2A;
+  --danger: #F87171;
+  --danger-soft: #3D1A1A;
+  --warning: #FBBF24;
+  --warning-soft: #3D321A;
+  --info: #60A5FA;
+  --info-soft: #1A2D3D;
+  --gradient-start: #2A1F3D;
+  --gradient-mid: #1F1530;
+  --gradient-end: #1A1225;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Transitions */
+.transition-theme {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.15s ease-out;
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  accent-color: var(--primary);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* Range input styling */
+input[type="range"] {
+  height: 4px;
+  cursor: pointer;
+}
+
+/* Select styling */
+select {
+  cursor: pointer;
+}
+
+/* Prevent text selection on interactive elements */
+button, [role="button"] {
+  user-select: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
